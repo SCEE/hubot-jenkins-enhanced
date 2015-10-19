@@ -193,7 +193,7 @@ class HubotJenkinsPlugin extends HubotMessenger
     job = @_getJob(true)
     server = @_serverManager.getServerByJobName(job)
     command = if buildWithEmptyParameters then "buildWithParameters" else "build"
-    path = if @_params then "job/#{job}/buildWithParameters?#{@_params}" else "job/#{job}/#{command}"
+    path = if @_params then "job/#{job}/buildWithParameters?" + @_params else "job/#{job}/#{command}"
     @_requestFactorySingle server, path, @_handleBuild, "post"
 
   describe: =>
